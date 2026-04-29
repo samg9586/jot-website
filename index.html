@@ -20,35 +20,50 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { background: var(--cream); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-        .container { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+        /* HERO — full viewport */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 0 4rem;
+        }
 
         .spark {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.4rem 0.85rem;
+            padding: 0.45rem 0.95rem;
             background: var(--cream-deep);
             border: 1px solid var(--hairline);
             border-radius: 999px;
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             letter-spacing: 0.02em;
+            align-self: flex-start;
         }
         .spark-dot {
             width: 8px; height: 8px;
             border-radius: 50%;
             background: var(--ember);
             box-shadow: 0 0 0 4px rgba(217, 117, 52, 0.15);
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(217, 117, 52, 0.15); }
+            50% { box-shadow: 0 0 0 8px rgba(217, 117, 52, 0.05); }
         }
 
         h1 {
             font-family: 'Newsreader', serif;
             font-weight: 500;
-            font-size: clamp(2.5rem, 6vw, 3.75rem);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.25rem;
+            font-size: clamp(3.5rem, 11vw, 9rem);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
         }
         h1 em {
             font-style: italic;
@@ -58,45 +73,70 @@
 
         .lede {
             font-family: 'Newsreader', serif;
-            font-size: 1.35rem;
-            line-height: 1.45;
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            line-height: 1.4;
             color: var(--text-secondary);
             margin-bottom: 3rem;
-            max-width: 560px;
+            max-width: 760px;
+        }
+
+        .coming-soon {
+            display: inline-flex;
+            align-self: flex-start;
+            padding: 0.65rem 1.15rem;
+            background: transparent;
+            border: 1px solid var(--hairline);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 6rem 0;
+            border-top: 1px solid var(--hairline);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 600px) {
             .grid { grid-template-columns: 1fr; }
         }
 
         .card {
-            padding: 1.5rem;
+            padding: 2rem 1.75rem;
             background: var(--cream-deep);
             border: 1px solid var(--hairline);
-            border-radius: 14px;
+            border-radius: 16px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--ember-soft);
         }
         .card h3 {
             font-family: 'Newsreader', serif;
             font-weight: 500;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
         }
-        .card p { font-size: 0.9rem; color: var(--text-secondary); }
+        .card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.55; }
 
         .footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
+            padding: 3rem 0 4rem;
             border-top: 1px solid var(--hairline);
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 0.85rem;
+            gap: 2rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
         .footer a {
@@ -110,57 +150,60 @@
             border-bottom-color: var(--ember);
         }
 
-        .coming-soon {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: 1px solid var(--hairline);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        @media (max-width: 600px) {
+            .container { padding: 0 1.5rem; }
+            .hero { padding: 4rem 0 3rem; }
+            .features { padding: 4rem 0; }
         }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <div class="spark">
-        <span class="spark-dot"></span>
-        Coming soon to the App Store
+<section class="hero">
+    <div class="container">
+        <div class="spark">
+            <span class="spark-dot"></span>
+            Coming soon to the App Store
+        </div>
+
+        <h1>Catch the <em>spark</em>.</h1>
+
+        <p class="lede">A voice-first notebook. Speak the thought, Jot transcribes it on your device, and it's saved before you'd even think to open another app.</p>
+
+        <div class="coming-soon">iPhone &middot; iOS 17+ &middot; Free</div>
     </div>
+</section>
 
-    <h1>Catch the <em>spark</em>.</h1>
-
-    <p class="lede">A voice-first notebook. Speak the thought, Jot transcribes it on your device, and it's saved before you'd even think to open another app.</p>
-
-    <div class="grid">
-        <div class="card">
-            <h3>On-device transcription</h3>
-            <p>Speech becomes text on your iPhone. No audio is sent to any server — not ours, not Apple's.</p>
-        </div>
-        <div class="card">
-            <h3>Private by design</h3>
-            <p>No accounts. No analytics. No ads. Notes sync via your iCloud and stay yours.</p>
-        </div>
-        <div class="card">
-            <h3>Faster than the lock screen</h3>
-            <p>Home Screen widget starts recording in one tap. The app doesn't need to be open.</p>
-        </div>
-        <div class="card">
-            <h3>Designed to disappear</h3>
-            <p>Newsreader serif, generous whitespace, calm motion. It feels like writing in a Muji notebook.</p>
+<section class="features">
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h3>On-device transcription</h3>
+                <p>Speech becomes text on your iPhone. No audio is sent to any server — not ours, not Apple's.</p>
+            </div>
+            <div class="card">
+                <h3>Private by design</h3>
+                <p>No accounts. No analytics. No ads. Notes sync via your iCloud and stay yours.</p>
+            </div>
+            <div class="card">
+                <h3>Faster than the lock screen</h3>
+                <p>Home Screen widget starts recording in one tap. The app doesn't need to be open.</p>
+            </div>
+            <div class="card">
+                <h3>Designed to disappear</h3>
+                <p>Newsreader serif, generous whitespace, calm motion. It feels like writing in a Muji notebook.</p>
+            </div>
         </div>
     </div>
+</section>
 
-    <div class="coming-soon">iPhone · iOS 17+ · Free</div>
-
+<footer class="container">
     <div class="footer">
         <a href="/privacy.html">Privacy</a>
         <a href="/support.html">Support</a>
         <a href="mailto:support@sparqan.com">support@sparqan.com</a>
     </div>
+</footer>
 
-</div>
 </body>
 </html>
