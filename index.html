@@ -143,7 +143,17 @@
             font-weight: 500;
             font-size: 1.35rem;
             margin-bottom: 0.6rem;
-            line-height: 1.2;
+            line-height: 1.25;
+        }
+        .card h3::before {
+            content: "";
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--ember);
+            margin-bottom: 1rem;
+            opacity: 0.85;
         }
         .card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.55; }
 
@@ -195,20 +205,20 @@
     <div class="container">
         <div class="grid">
             <div class="card">
-                <h3>On-device transcription</h3>
-                <p>Speech becomes text on your iPhone. No audio is sent to any server — not ours, not Apple's.</p>
+                <h3>Voice stays put</h3>
+                <p>Apple's on-device speech recognizer transcribes in real time. Audio is never written to disk and never leaves the device.</p>
             </div>
             <div class="card">
-                <h3>Private by design</h3>
-                <p>No accounts. No analytics. No ads. Notes sync via your iCloud and stay yours.</p>
+                <h3>Yours alone</h3>
+                <p>No accounts, no analytics, no ads. Notes sync through your private iCloud — Apple can't read them, we can't read them, only you.</p>
             </div>
             <div class="card">
                 <h3>Faster than the lock screen</h3>
-                <p>Home Screen widget starts recording in one tap. The app doesn't need to be open.</p>
+                <p>The Home Screen widget starts recording before the app finishes opening.</p>
             </div>
             <div class="card">
                 <h3>Reads like paper, vanishes like good chrome</h3>
-                <p>Newsreader serif, soft cream, calm motion. We designed the app to get out of your way.</p>
+                <p>Newsreader serif, soft cream, calm motion. Designed to get out of your way.</p>
             </div>
         </div>
     </div>
