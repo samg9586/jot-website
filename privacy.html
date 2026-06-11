@@ -71,7 +71,10 @@
     <p>Notes you create in Jot are stored on your iPhone using Apple's SwiftData framework. If you have iCloud enabled for Jot, those notes also sync to <strong>your own private iCloud database</strong> through Apple's CloudKit, so they appear across your signed-in Apple devices.</p>
     <p>This CloudKit sync — and the silent background notifications Apple uses to keep your devices up to date — are network connections to <strong>Apple's</strong> iCloud, made on your behalf and tied to your Apple Account. <strong>Jot operates no servers of its own.</strong> Your notes sync only through your private Apple iCloud account (CloudKit), where Apple acts as the data processor. The developer never receives, sees, or stores your notes. We have no admin console, no database, and no technical means to read your content.</p>
 
-    <h3>1.2 Voice and audio</h3>
+    <h3>1.2 Photos you attach</h3>
+    <p>You can attach photos to a note. Attached photos are treated exactly like your notes: stored on your iPhone and, if iCloud is enabled, synced only to <strong>your own private iCloud database</strong>. Jot does not request access to your photo library &mdash; the system photo picker runs outside the app and hands over only the photos you explicitly choose. The developer never receives, sees, or stores them.</p>
+
+    <h3>1.3 Voice and audio</h3>
     <p>When you record a voice note, Jot uses Apple's <strong>on-device</strong> speech recognizer (the <code>SFSpeechRecognizer</code> framework, configured with <code>requiresOnDeviceRecognition = true</code>). Transcription happens locally on your iPhone. <strong>The audio is discarded immediately once transcription completes</strong> — it is never written to disk, never stored, and never transmitted off your device. Only the resulting text becomes part of your note.</p>
 
     <h3>1.3 Permissions Jot requests</h3>
